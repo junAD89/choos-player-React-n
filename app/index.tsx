@@ -1,7 +1,9 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 
 import { bgStyles } from "../assets/bgStyles/bgStyles";
+import CenterImage from "./components/CenterImage";
+import ChooseButton from "./components/ChooseButton";
 
 
 export default function Index() {
@@ -13,14 +15,8 @@ export default function Index() {
 
 
 
-
-
-
-      <TouchableOpacity>
-        <Text style={styles.buttonText}>Bof</Text>
-      </TouchableOpacity>
-
-
+      <CenterImage />
+      <ChooseButton />
 
     </View>
   );
