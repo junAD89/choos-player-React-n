@@ -1,24 +1,57 @@
-import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Camera } from 'lucide-react-native';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+import { motion } from "motion/react";
 
 export default function ChooseButton() {
     return (
         <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button}>
-                <Text>
-                    ChooseButton
 
-                </Text>
-            </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button}>
-                <Text>
-                    ChooseButton
 
-                </Text>
-            </TouchableOpacity>
+            <motion.view
+                whileTap={{ scale: 0.9 }}
+
+
+            >
+                <TouchableOpacity style={styles.button}>
+                    <Text>
+                        ChooseButton
+                    </Text>
+
+                </TouchableOpacity>
+            </motion.view>
+
+
+
+
+
+            <motion.view
+                whileTap={{ scale: 0.9 }}
+
+
+
+
+
+            >
+                <TouchableOpacity style={styles.button}>
+                    <Text>
+                        ChooseButton
+                    </Text>
+
+                </TouchableOpacity>
+
+            </motion.view>
+
+
+            <Camera color="red" size={48} />
+
+
+
 
         </View >
+
 
     )
 }

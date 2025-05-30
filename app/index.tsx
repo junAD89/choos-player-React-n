@@ -6,6 +6,8 @@ import CenterImage from "./components/CenterImage";
 import ChooseButton from "./components/ChooseButton";
 
 
+
+
 export default function Index() {
   return (
     <View
