@@ -1,58 +1,53 @@
 import { Heart, XCircle } from 'lucide-react-native';
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-
-import { motion } from "motion/react";
+import React, { useRef } from 'react';
+import { Animated, Pressable, StyleSheet, View } from 'react-native';
 
 export default function ChooseButton() {
+    const scaleLeft = useRef(new Animated.Value(1)).current;
+    const scaleRight = useRef(new Animated.Value(1)).current;
+
+    const animateIn = (scale: any) => {
+        Animated.spring(scale, {
+            toValue: 0.95,
+            useNativeDriver: true,
+        }).start();
+    };
+
+    const animateOut = (scale: any) => {
+        Animated.spring(scale, {
+            toValue: 1,
+            useNativeDriver: true,
+        }).start();
+    };
+
     return (
         <View style={styles.buttonContainer}>
-
-            <motion.view
-                whileTap={{
-                    scale: 0.8,
-                    animation: 'ease-in-out'
-                }}>
-                <TouchableOpacity style={styles.button}>
-                    <Text>
-
-                        <XCircle color="red" size={45} />
-                    </Text>
-
-                </TouchableOpacity>
-            </motion.view>
-
-
-
-
-
-            <motion.view
-                whileTap={{
-                    scale: 0.8,
-                    animation: 'ease-in-out'
-                }}
-
-
-
-
-
+            {/* Bouton gauche (XCircle) */}
+            <Pressable
+                onPressIn={() => animateIn(scaleLeft)}
+                onPressOut={() => animateOut(scaleLeft)}
             >
-                <TouchableOpacity style={styles.button}>
-                    <Text>
-                        <Heart size={45} />
-                    </Text>
+                <Animated.View style={{ transform: [{ scale: scaleLeft }] }}>
+                    <View style={styles.button}>
+                        <XCircle color="red" size={45} />
+                    </View>
+                </Animated.View>
+            </Pressable>
 
-                </TouchableOpacity>
-
-            </motion.view>
-
-        </View >
-
-
-    )
+            {/* Bouton droit (Heart) */}
+            <Pressable
+                onPressIn={() => animateIn(scaleRight)}
+                onPressOut={() => animateOut(scaleRight)}
+            >
+                <Animated.View style={{ transform: [{ scale: scaleRight }] }}>
+                    <View style={styles.button}>
+                        <Heart color="white" size={45} />
+                    </View>
+                </Animated.View>
+            </Pressable>
+        </View>
+    );
 }
-
-
 
 const styles = StyleSheet.create({
     buttonContainer: {
@@ -72,4 +67,4 @@ const styles = StyleSheet.create({
         height: 70,
         borderRadius: 20,
     },
-})
+});
