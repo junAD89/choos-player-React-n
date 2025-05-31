@@ -1,4 +1,4 @@
-import { Camera } from 'lucide-react-native';
+import { Heart, XCircle } from 'lucide-react-native';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
@@ -8,16 +8,15 @@ export default function ChooseButton() {
     return (
         <View style={styles.buttonContainer}>
 
-
-
             <motion.view
-                whileTap={{ scale: 0.9 }}
-
-
-            >
+                whileTap={{
+                    scale: 0.8,
+                    animation: 'ease-in-out'
+                }}>
                 <TouchableOpacity style={styles.button}>
                     <Text>
-                        ChooseButton
+
+                        <XCircle color="red" size={45} />
                     </Text>
 
                 </TouchableOpacity>
@@ -28,7 +27,10 @@ export default function ChooseButton() {
 
 
             <motion.view
-                whileTap={{ scale: 0.9 }}
+                whileTap={{
+                    scale: 0.8,
+                    animation: 'ease-in-out'
+                }}
 
 
 
@@ -37,18 +39,12 @@ export default function ChooseButton() {
             >
                 <TouchableOpacity style={styles.button}>
                     <Text>
-                        ChooseButton
+                        <Heart size={45} />
                     </Text>
 
                 </TouchableOpacity>
 
             </motion.view>
-
-
-            <Camera color="red" size={48} />
-
-
-
 
         </View >
 
